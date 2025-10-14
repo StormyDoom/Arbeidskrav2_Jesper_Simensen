@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Arbeidskrav 2</title>
 </head>
 <body>
     <h1>Arbeidskrav 2</h1>
@@ -16,7 +16,7 @@
     <p>Finnes ordet "problemløsning" i Programmeringsord-arrayen? <span id="problemlosning_sjekk"></span></p>
     <h2>Problem 3</h2>
     <p>Gjennomsnittet av tallene i tall_array_en er <span id="avg_array_one"></span></p>
-    <p>Gjennomsnittet av tallene i tall_array_to er <span id="avg_array_one"></span></p>
+    <p>Gjennomsnittet av tallene i tall_array_to er <span id="avg_array_two"></span></p>
 
     <script>
         //PROBLEM 1
@@ -25,17 +25,65 @@
         let random_color_code = "#"
         
         //Din kode for å løse problem 1 her.
+        function randomHexCode() {
+        const hexadecimal_characters = "ABCDEF1234567890";
+        let random_color_code = "#";
+            while (random_color_code.length < 7) {
+            random_color_code += hexadecimal_characters[Math.floor(Math.random() * hexadecimal_characters.length)];
+            }
+        return random_color_code;
+    }
 
+        document.getElementById("random_color").innerHTML = randomHexCode ();
         //PROBLEM 2
         const programming_words = ["variabel","funksjon","array","objekt","loop","betingelse","klasse","rekursjon","algoritme","kompilator"]
 
         //Din kode for å løse problem 2 her.
+        const betingelse_sjekk = "betingelse";
+        let sjekk_av_betingelse = "";
+        if (programming_words.includes(betingelse_sjekk)) {
+            sjekk_av_betingelse = (`Ja`);
+        } else {
+            sjekk_av_betingelse = (`Nei`);
+        }
+
+        const algoritme_sjekk = "algoritme";
+        let sjekk_av_algoritme = "";
+        if (programming_words.includes(algoritme_sjekk)){
+            sjekk_av_algoritme = (`Ja`);
+        } else {
+            sjekk_av_algoritme = (`Nei`);
+        }
+
+        const problemlosning_sjekk = "problemløsning";
+        let sjekk_av_problemlosning = "";
+        if (programming_words.includes(problemlosning_sjekk)){
+            sjekk_av_problemlosning = (`Ja`);
+        } else {
+            sjekk_av_problemlosning = (`Nei`);
+        }
+
+        document.getElementById("betingelse_sjekk").innerHTML = sjekk_av_betingelse
+        document.getElementById("algoritme_sjekk").innerHTML = sjekk_av_algoritme
+        document.getElementById("problemlosning_sjekk").innerHTML = sjekk_av_problemlosning
 
         //PROBLEM 3
         const tall_array_en = [9, 13, 5, 62, 11, 6, 28, 31, 17]
         const tall_array_to = [23, 76, 88, 13, 56, 90, 42]
 
         //Din kode for å løse problem 3 her.
+        const avg_array_one = tall_array_en.reduce(function (total, number) {
+            return total + number;
+        });
+        const average = avg_array_one / tall_array_en.length;
+
+        const avg_array_two = tall_array_to.reduce(function (total, number){
+            return total + number;
+        });
+        const average_2 = avg_array_two / tall_array_to.length;
+        
+        document.getElementById("avg_array_one").innerHTML = average
+        document.getElementById("avg_array_two").innerHTML = average_2
     </script>
 </body>
 </html>
